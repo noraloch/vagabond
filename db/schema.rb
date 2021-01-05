@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_01_04_194140) do
     t.integer "user_id"
     t.integer "place_id"
     t.string "photo"
+    t.text "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
