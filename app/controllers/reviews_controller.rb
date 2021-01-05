@@ -13,9 +13,19 @@ class ReviewsController < ApplicationController
         @places = Place.all
     end
 
+
     def create
         @review = @current_user.reviews.create(review_params)
-        redirect_to @reviews
+
+        #added validation
+        #changed redirect to reviews to redirect to current user review path 
+        if @review.valid?
+            redirect_to review_path(@current_user)
+          else 
+            flash[:errors] = @review.errors.full_messages
+            redirect_to new_review_path
+          end 
+
     end
 
     def destroy

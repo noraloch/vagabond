@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:edit, :update]
-    # skip_before_action :authorize_page, only: [:new, :create]
+    skip_before_action :authorized?, only: [:new, :create]
   
     def show
         @user = User.find(params[:id])
@@ -12,16 +12,33 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        redirect_to user_path
+
+        # added validation 
+        if @user.valid?
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to new_user_path
+        end
+
     end
 
     def edit
-        # @user = @current_user
+        @user = @current_user
     end
 
     def update
         @user.update(user_params)
-        redirect_to user_path(@current_user)
+
+        # added validation 
+        if @user.valid?
+            redirect_to user_path(@current_user)
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to user_path(@current_user)
+        end
+
     end
 
     private
