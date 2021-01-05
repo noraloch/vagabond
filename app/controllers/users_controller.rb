@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:edit, :update]
-    # skip_before_action :authorize_page, only: [:new, :create]
+    skip_before_action :authorized?, only: [:new, :create]
   
     def show
         @user = User.find(params[:id])
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     end
 
     def edit
-        # @user = @current_user
+        @user = @current_user
     end
 
     def update
