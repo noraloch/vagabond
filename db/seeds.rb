@@ -7,13 +7,39 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-puts "Destroying"
+# puts "Destroying"
 # User.destroy_all
 # Review.destroy_all
-Place.destroy_all
+# Place.destroy_all
 
 
-puts "Creating Users 👨‍👨‍👧‍👦"
-20.times do 
-  User.create(name: Faker::FunnyName.name, username: Faker::Music::RockBand.name)
-end 
+# puts "Creating Users 👨‍👨‍👧‍👦"
+# 20.times do 
+#   User.create(name: Faker::FunnyName.name, username: Faker::Music::RockBand.name)
+# end
+
+
+res = RestClient.get("https://api.teleport.org/api/urban_areas")
+res_body = res.body
+places = JSON.parse(res_body)
+
+cities = places["_links"]["ua:item"]
+
+cities.each do |city|
+    # construct image api url
+    image_api = city["href"] + "images/"
+
+    # make a GET request to the image api endpoint
+    image_data_res = RestClient.get(image_api)
+    image_data_body = image_data_res.body
+    image_data = JSON.parse(image_data_body)
+
+    photo = image_data["photos"][0]["image"]["web"]
+
+    city_name = city["name"]
+
+    Place.create(name: city_name, image: photo)
+
+end
+
+
