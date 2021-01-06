@@ -1,0 +1,11 @@
+<h3><%= @review.title %></h3>
+
+<%= @review.photo %>
+<p>Review: <%= @review.review %></p>
+<p>By: <%= @review.user.name %></p>
+
+<p><% @review.likes.count %> <%= (@review.likes.count) == 1 ? "Like" : "Likes" %></p>
+<%= button_to "Like", review_likes_path(@review), method: :post %>
+
+<%= link_to "All Reviews", reviews_path(@reviews) %>
+

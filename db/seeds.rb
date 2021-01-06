@@ -42,4 +42,6 @@ cities.each do |city|
 
 end
 
+# User.create(name: "John", username: "John91", date_of_birth: "09/21/1992", password: "abc123")
+
 
