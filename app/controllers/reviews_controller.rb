@@ -31,12 +31,12 @@ class ReviewsController < ApplicationController
     def destroy
         @review = Review.find(params[:id])
         @review.destroy
-        redirect_to @reviews
+        redirect_to reviews_path
     end
     
     private
 
     def review_params
-        params.require(:review).permit(:user_id, :place_id, :photo, :review, :title)
+        params.require(:review).permit(:user_id, :place_id, :image, :review, :title)
     end
 end
