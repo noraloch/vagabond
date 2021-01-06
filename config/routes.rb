@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # delete "/log_out", to: "sessions#log_out", as: "log_out"
 #corrected the log_out route
 
-  delete "/logout", to: "sessions#logout" 
+  delete "/logout", to: "sessions#logout" , as: "logout"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
