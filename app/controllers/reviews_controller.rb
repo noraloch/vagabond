@@ -4,8 +4,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        @review = Review.find(params[:id])
-        
+        @review = @current_user.reviews.find(params[:id])
     end
 
     def new
@@ -21,7 +20,7 @@ class ReviewsController < ApplicationController
         #added validation
         #changed redirect to reviews to redirect to current user review path 
         if @review.valid?
-            redirect_to review_path(@current_user)
+            redirect_to review_path(@review)
           else 
             flash[:errors] = @review.errors.full_messages
             redirect_to new_review_path
