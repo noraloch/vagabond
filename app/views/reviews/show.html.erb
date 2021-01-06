@@ -1,10 +1,17 @@
 <h3><%= @review.title %></h3>
 
-<%= @review.photo %>
+<img src="<%= @review.image_url.to_s %>" alt="review photo" width="400" height="400">
 <p>Review: <%= @review.review %></p>
 <p>By: <%= @review.user.name %></p>
 
-<%= button_to "Like", review_likes_path(@review), method: :post %>
-
+<%= button_to "Like", review_likes_path(@review), method: :post %>  
+<%= @review.likes.count %>
+<br>
+<% if flash[:errors] %>
+    <p><%= flash[:errors] %></p>
+<% end %>
+<br>
+<%= button_to "Delete", review_path(@review), method: :delete %>
+<br>
 <%= link_to "All Reviews", reviews_path(@reviews) %>
 

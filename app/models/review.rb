@@ -5,4 +5,6 @@ class Review < ApplicationRecord
 
     validates :review, :title, presence: true  
 
+    mount_uploader :image, ImageUploader
+
 end

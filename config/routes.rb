@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :reviews, except: [:edit, :update] do 
-    resources :likes
+  resources :likes
   end
   resources :places, only: [:index, :show]
   resources :users, except: [:index, :destroy]

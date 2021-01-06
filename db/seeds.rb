@@ -42,6 +42,15 @@ cities.each do |city|
 
 end
 
-# User.create(name: "John", username: "John91", date_of_birth: 09/21/1992, password: "abc123")
+User.create(name: "john", username: "john91", password: "abc123")
+User.create(name: "noura", username: "noura10", password: "abc123")
+User.create(name: "greg", username: "greg01", password: "abc123")
+User.create(name: "jallen", username: "jallen91", password: "abc123")
+User.create(name: "rianna", username: "rianna91", password: "abc123")
+User.create(name: "june", username: "june91", password: "abc123")
+
+
+
+
 
 puts "seeded!"
