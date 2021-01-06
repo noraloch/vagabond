@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :find_user, only: [:edit, :update]
-    skip_before_action :authorized?, only: [:new, :create]
+    # skip_before_action :authorized?, only: [:new, :create]
   
     def show
         @user = User.find(params[:id])
@@ -29,14 +29,14 @@ class UsersController < ApplicationController
     end
 
     def update
-        @user.update(user_params)
+        @current_user.update(user_params)
 
         # added validation 
         if @user.valid?
             redirect_to user_path(@current_user)
         else
             flash[:errors] = @user.errors.full_messages
-            redirect_to user_path(@current_user)
+            redirect_to edit_userr_path(@current_user)
         end
 
     end
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :username, :password, :date_of_birth, :bio, :city, :profile_picture)
+        params.require(:user).permit(:name, :username, :password, :date_of_birth, :bio, :city, :image)
     end
 
     def find_user

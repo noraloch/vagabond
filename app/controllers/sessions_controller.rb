@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     skip_before_action :authorized?, only: [:new, :create]
+
     def new
     end
 
@@ -9,13 +10,17 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            flash[:errors] = "Username or Password is incorrect"
+            flash[:errors] = "Username or Password incorrect"
             redirect_to new_session_path
         end
     end
-    
-    def log_out
+
+ 
+
+    def logout
+        # byebug
         session[:user_id] = nil
+        # session.delete(:user_id)
         redirect_to new_session_path
     end
 end

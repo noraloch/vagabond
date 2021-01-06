@@ -1,0 +1,52 @@
+
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+        <p style="color: red;"><%= error %></p>
+    <% end %>
+<% end %>
+
+
+<div class='form-container'>
+
+<%= form_for @user, :html => {:multipart => true} do |f| %>
+
+  <div class="form-input">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-input">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="form-input">
+    <%= f.label :password %> 
+    <%= f.password_field :password %>
+  </div>
+
+
+  <div class="form-input">
+    <%= f.label :profile_photo %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-input">
+    <%= f.label :date_of_birth %>
+    <%= f.date_select :date_of_birth, :start_year=>1910 %>
+  </div>
+
+  <div class="form-input">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="form-input">
+  <%= f.label :bio %>
+  <%= f.text_field :bio %>
+</div>
+
+  <%= f.submit class: 'form-button'%>
+<% end %>
+</div>
