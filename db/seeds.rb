@@ -13,10 +13,10 @@
 # Place.destroy_all
 
 
-puts "Creating Users 👨‍👨‍👧‍👦"
-20.times do 
-  User.create(name: Faker::FunnyName.name, username: Faker::Music::RockBand.name)
-end
+# puts "Creating Users 👨‍👨‍👧‍👦"
+# 20.times do 
+#   User.create(name: Faker::FunnyName.name, username: Faker::Music::RockBand.name)
+# end
 
 
 res = RestClient.get("https://api.teleport.org/api/urban_areas")
@@ -42,6 +42,6 @@ cities.each do |city|
 
 end
 
-# User.create(name: "John", username: "John91", date_of_birth: "09/21/1992", password: "abc123")
+# User.create(name: "John", username: "John91", date_of_birth: 09/21/1992, password: "abc123")
 
-
+puts "seeded!"
