@@ -6,12 +6,6 @@
 
 <%= render 'comments/comment' %>
 
-
-<%= button_to "Like", review_likes_path(@review), method: :post %>  
-<%= @review.likes.count %>
-
-<%= render 'comments/comment' %>
-
 <br>
 <% if flash[:errors] %>
     <p style="color:red"><%= flash[:errors] %></p>
