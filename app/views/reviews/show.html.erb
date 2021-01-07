@@ -6,37 +6,20 @@
 
 <%= render 'comments/comment' %>
 
-<<<<<<< HEAD
+
 <%= button_to "Like", review_likes_path(@review), method: :post %>  
 <%= @review.likes.count %>
 
 <%= render 'comments/comment' %>
 
-=======
->>>>>>> June
+<br>
 <% if flash[:errors] %>
     <p style="color:red"><%= flash[:errors] %></p>
 <% end %>
-
 <br>
-<<<<<<< HEAD
 
-<%# button_to "Comment", review_comments_path(@review), method: :post %>
-<%# @review.comments.count %>
-
-
-
-=======
->>>>>>> June
 <% if @current_user == @review.user %>
     <%= button_to "Delete", review_path(@review), method: :delete %>
 <% end %>
 
-<<<<<<< HEAD
-<br>
-
-<%= link_to "All Reviews", reviews_path(@reviews) %>
-=======
-
->>>>>>> June
 
