@@ -5,9 +5,6 @@ class ReviewsController < ApplicationController
 
     def show
         @review = @current_user.reviews.find(params[:id])
-        # @comments = @review.comments.all
-        # @comment = @review.comments.build
-        @comments = Comment.where(review_id: @review)
     end
 
     def new
