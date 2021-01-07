@@ -5,7 +5,8 @@
 <img src="<%= @place.image %>" alt="<%= @place.name%>">
 
 <ul>
-   <% @place.reviews.all.each do |review| %>
+   <% @place.reviews.each do |review| %>
       <li><%= link_to review.title, review_path(review) %></li>
    <% end %>
 </ul>
+

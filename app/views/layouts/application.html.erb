@@ -15,7 +15,8 @@
       <nav>
         Logged in as: <%= link_to @current_user.name, user_path(@current_user) %>
           <%= button_to "Logout", logout_path, method: :delete %>
-          <%= link_to "Reviews", reviews_path%>
+          <%= link_to "Reviews", reviews_path %><br>
+          <%= link_to "Explore", places_path %>
       </nav>
     <% else %>
       <nav>
