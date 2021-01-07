@@ -1,0 +1,8 @@
+<% if flash[:error] %>
+    <p><%= flash[:error] %></p>
+<% end %>
+
+<%= form_for([@review, @review.comments.build]) do |f| %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+<% end %>

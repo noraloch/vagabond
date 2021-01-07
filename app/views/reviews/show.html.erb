@@ -6,12 +6,25 @@
 
 <%= button_to "Like", review_likes_path(@review), method: :post %>  
 <%= @review.likes.count %>
-<br>
+
+<%= render 'comments/comment' %>
+
 <% if flash[:errors] %>
     <p><%= flash[:errors] %></p>
 <% end %>
+
 <br>
-<%= button_to "Delete", review_path(@review), method: :delete %>
+
+<%# button_to "Comment", review_comments_path(@review), method: :post %>
+<%# @review.comments.count %>
+
+
+
+<% if @current_user == @review.user %>
+    <%= button_to "Delete", review_path(@review), method: :delete %>
+<% end %>
+
 <br>
+
 <%= link_to "All Reviews", reviews_path(@reviews) %>
 
