@@ -5,10 +5,12 @@ class CommentsController < ApplicationController
         @comment = @review.comments.create(params[:comment].permit(:content))
         @comment.user_id = @current_user.id
         @comment.save
-        if @comment.save
+        if @comment.valid?
+            @comment.save
             redirect_to review_path(@review)
         else
-            render 'new'
+            flash[:errorz] = "You must write something!"
+            redirect_to review_path(@review)
         end
     end
 
