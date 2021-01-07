@@ -14,15 +14,13 @@
     <% if @current_user %>
       <nav>
         Logged in as: <%= link_to @current_user.name, user_path(@current_user) %>
-
           <%= button_to "Logout", logout_path, method: :delete %>
-
+          <%= link_to "Reviews", reviews_path%>
       </nav>
     <% else %>
       <nav>
         <%= link_to "Login", new_session_path %>
         <%= link_to "Sign Up", new_user_path %>
-        <%= link_to "Reviews", reviews_path%>
       </nav>
     <% end %>
     <%= yield %>

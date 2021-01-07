@@ -1,30 +1,42 @@
-<h3><%= @review.title %></h3>
+<h2><%= @review.title %></h2>
+    <img src="<%= @review.image_url.to_s %>" alt="review photo" width="400" height="400"><br>
+   <p><strong>Review: </strong> <%= @review.review %></p><br>
+   <p><strong>By: </strong><%= link_to @review.user.name, user_path(@review.user) %></p>
+<%= button_to "Like", review_likes_path(@review), method: :post %>  <%= @review.likes.count %>
 
-<img src="<%= @review.image_url.to_s %>" alt="review photo" width="400" height="400">
-<p>Review: <%= @review.review %></p>
-<p>By: <%= @review.user.name %></p>
+<%= render 'comments/comment' %>
 
+<<<<<<< HEAD
 <%= button_to "Like", review_likes_path(@review), method: :post %>  
 <%= @review.likes.count %>
 
 <%= render 'comments/comment' %>
 
+=======
+>>>>>>> June
 <% if flash[:errors] %>
-    <p><%= flash[:errors] %></p>
+    <p style="color:red"><%= flash[:errors] %></p>
 <% end %>
 
 <br>
+<<<<<<< HEAD
 
 <%# button_to "Comment", review_comments_path(@review), method: :post %>
 <%# @review.comments.count %>
 
 
 
+=======
+>>>>>>> June
 <% if @current_user == @review.user %>
     <%= button_to "Delete", review_path(@review), method: :delete %>
 <% end %>
 
+<<<<<<< HEAD
 <br>
 
 <%= link_to "All Reviews", reviews_path(@reviews) %>
+=======
+
+>>>>>>> June
 

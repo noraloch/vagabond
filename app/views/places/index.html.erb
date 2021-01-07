@@ -17,7 +17,16 @@
 }
 </style>
 
-<h1>The Vagabond Places</h1>
+<h1 style="text-align:center">Vagabond</h1>
+
+<nav style="text-align:right">
+  <form action="<%= places_path %>">
+    <input type="text" placeholder="Where to?" name="search_key">
+    <button type="submit">Search</button>
+  </form>
+</nav>
+
+
 
 
 <div class="grid-container">
@@ -30,3 +39,7 @@
 </div>
 <% end %>
 </div>
+
+
+
+

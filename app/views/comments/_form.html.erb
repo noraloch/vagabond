@@ -1,5 +1,5 @@
-<% if flash[:error] %>
-    <p><%= flash[:error] %></p>
+<% if flash[:errorz] %>
+    <p style="color:red"><%= flash[:errorz] %></p>
 <% end %>
 
 <%= form_for([@review, @review.comments.build]) do |f| %>
