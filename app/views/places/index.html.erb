@@ -19,6 +19,7 @@
 
 <h1>The Vagabond Places</h1>
 
+<%= link_to "Reviews", reviews_path(@reviews) %>
 
 <div class="grid-container">
 <% @places.each do |place| %>
@@ -30,3 +31,5 @@
 </div>
 <% end %>
 </div>
+
+

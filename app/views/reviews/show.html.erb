@@ -1,17 +1,19 @@
-<h3><%= @review.title %></h3>
-
-<img src="<%= @review.image_url.to_s %>" alt="review photo" width="400" height="400">
-<p>Review: <%= @review.review %></p>
-<p>By: <%= @review.user.name %></p>
-
-<%= button_to "Like", review_likes_path(@review), method: :post %>  
-<%= @review.likes.count %>
+<h2><%= @review.title %></h2>
+    <img src="<%= @review.image_url.to_s %>" alt="review photo" width="400" height="400"><br>
+   <p><strong>Review: </strong> <%= @review.review %></p><br>
+   <p><strong>By: </strong><%= @review.user.name %></p>
 <br>
+<%= button_to "Like", review_likes_path(@review), method: :post %>  <%= @review.likes.count %>
+
+<%= render 'comments/comment' %>
+
 <% if flash[:errors] %>
-    <p><%= flash[:errors] %></p>
+    <p style="color:red"><%= flash[:errors] %></p>
 <% end %>
 <br>
-<%= button_to "Delete", review_path(@review), method: :delete %>
+<% if @current_user == @review.user %>
+    <%= button_to "Delete", review_path(@review), method: :delete %>
+<% end %>
 <br>
 <%= link_to "All Reviews", reviews_path(@reviews) %>
 

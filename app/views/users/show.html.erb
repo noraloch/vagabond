@@ -20,4 +20,7 @@ body {text-align: center;}
 <p>City: <%= @user.city %></p>
 </body>
 
+<%= link_to "Explore", places_path(@places) %>
+<%= link_to "Reviews", reviews_path(@reviews) %>
+
 
