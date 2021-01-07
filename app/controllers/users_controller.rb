@@ -40,6 +40,10 @@ class UsersController < ApplicationController
 
     end
 
+    def remove_image
+        @current_user.image.remove!
+    end
+
     private
 
     def user_params

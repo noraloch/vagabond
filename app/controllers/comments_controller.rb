@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     def create
         @comment = @review.comments.create(params[:comment].permit(:content))
         @comment.user_id = @current_user.id
-        @comment.save
+        # @comment.save
         if @comment.valid?
             @comment.save
             redirect_to review_path(@review)

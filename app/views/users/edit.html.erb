@@ -1,5 +1,10 @@
 <div class='form-container'>
+
 <h2> Update <%= @current_user.name %>'s Profile </h2>
+<% if @current_user.image? %>
+    <%= button_to "Remove photo", remove_image_path(@current_user), method: :delete %>
+<% end %><br>
+
   <%= render 'form' %>
 </div>
 

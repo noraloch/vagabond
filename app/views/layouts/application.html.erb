@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,8 +17,9 @@
       <nav>
         Logged in as: <%= link_to @current_user.name, user_path(@current_user) %>
           <%= button_to "Logout", logout_path, method: :delete %>
-          <%= link_to "Reviews", reviews_path %><br>
-          <%= link_to "Explore", places_path %>
+          <%= link_to "Traveler Reviews", reviews_path %><br>
+          <%= link_to "Explore Vagabond", places_path %><br>
+          <%= link_to "Contact us", contacts_path %>
       </nav>
     <% else %>
       <nav>
