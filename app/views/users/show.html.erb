@@ -13,14 +13,23 @@ body {text-align: center;}
 <img src="<%= @user.image_url.to_s %>" alt="profile photo" width="85" height="90">
 
 <br>
-<p>Name: <%= @user.name %></p>
+<p><strong>Name: <%= @user.name %></p>
 <p>Username: <%= @user.username %></p>
 <p>Date of Birth: <%= @user.date_of_birth.strftime('%Y-%m-%d') %></p>
 <p>Bio: <%= @user.bio %></p>
 <p>City: <%= @user.city %></p>
 </body>
+<ul>
+    Reviews:
+    <% @user.reviews.each do |review| %>
+       <li><%= link_to review.title, review_path(review) %></li>
+    <% end %>
+</ul>
 
+<% if @current_user == @user %>
+    <%= link_to "Edit Profile", edit_user_path(@current_user) %>
+<% end %>
 <%= link_to "Explore", places_path(@places) %>
-<%= link_to "Reviews", reviews_path(@reviews) %>
+
 
 

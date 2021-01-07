@@ -1,8 +1,7 @@
 <h2><%= @review.title %></h2>
     <img src="<%= @review.image_url.to_s %>" alt="review photo" width="400" height="400"><br>
    <p><strong>Review: </strong> <%= @review.review %></p><br>
-   <p><strong>By: </strong><%= @review.user.name %></p>
-<br>
+   <p><strong>By: </strong><%= link_to @review.user.name, user_path(@review.user) %></p>
 <%= button_to "Like", review_likes_path(@review), method: :post %>  <%= @review.likes.count %>
 
 <%= render 'comments/comment' %>
@@ -14,6 +13,6 @@
 <% if @current_user == @review.user %>
     <%= button_to "Delete", review_path(@review), method: :delete %>
 <% end %>
-<br>
-<%= link_to "All Reviews", reviews_path(@reviews) %>
+
+
 

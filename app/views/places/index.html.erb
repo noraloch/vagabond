@@ -17,9 +17,17 @@
 }
 </style>
 
-<h1>The Vagabond Places</h1>
+<h1 style="text-align:center">Vagabond</h1>
 
-<%= link_to "Reviews", reviews_path(@reviews) %>
+<nav style="text-align:right">
+  <form action="<%= places_path %>">
+    <input type="text" placeholder="Where to?" name="search_key">
+    <button type="submit">Search</button>
+  </form>
+</nav>
+
+
+
 
 <div class="grid-container">
 <% @places.each do |place| %>
@@ -31,5 +39,7 @@
 </div>
 <% end %>
 </div>
+
+
 
 

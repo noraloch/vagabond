@@ -4,7 +4,8 @@
 <h1><%= @place.name%></h1>
 <img src="<%= @place.image %>" alt="<%= @place.name%>">
 
-<% @place.reviews.all.each do |review| %>
-   <p><%= review %></p>
-<% end %>
-
+<ul>
+   <% @place.reviews.all.each do |review| %>
+      <li><%= link_to review.title, review_path(review) %></li>
+   <% end %>
+</ul>
