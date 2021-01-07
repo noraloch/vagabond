@@ -18,6 +18,13 @@ body {text-align: center;}
 <p>Date of Birth: <%= @user.date_of_birth.strftime('%Y-%m-%d') %></p>
 <p>Bio: <%= @user.bio %></p>
 <p>City: <%= @user.city %></p>
+<p>Reviews: <% @user.reviews.each do |review| %></p>
+                <p><%= link_to review.review, review_path(review.id)%></p>
+            <% end %>
+<p><%= link_to "Vagabond places", places_path %></p>
+<p><%= link_to "Vagabond reviews", reviews_path %></p>
+
+    
 </body>
 
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :reviews, except: [:edit, :update] do 
   resources :likes
   end
