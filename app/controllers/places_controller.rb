@@ -15,3 +15,4 @@ class PlacesController < ApplicationController
     end
 
 end
+# <%= link_to "Explore Vagabond", places_path %><br>

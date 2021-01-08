@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
       # code unless condition
       redirect_to new_session_path unless find_current_user
     end 
+
+   def logo
+    send_file "app/assets/images/logo.png" , type: 'image/png', disposition: 'inline'
+   end
+   
 end

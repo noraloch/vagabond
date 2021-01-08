@@ -1,9 +1,8 @@
-<div class="box">
-    <h1>Traveler Reviews</h1>
-</div>
-<div class="reviews">
-    <%= link_to "New Review", new_review_path(@review) %> 
-</div>
+
+<h1>Traveler Reviews</h1>
+
+<%= link_to "New Review", new_review_path(@review) %> 
+
 <ol>
     <% @reviews.each do |review| %>
        <li><%= link_to review.title, review_path(review) %> <%= review.likes.count %></li>
