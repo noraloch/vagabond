@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   delete "/users/:id/remove_image", to: "users#remove_image", as: "remove_image"
 
+  get "app/assets/images/logo.png", to: "application#logo"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
