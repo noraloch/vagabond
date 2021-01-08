@@ -1,7 +1,8 @@
 
-<h1><%= @place.name%></h1>
-<img src="<%= @place.image %>" alt="<%= @place.name%>">
 
+
+<h1><%= @place.name%></h1>
+   <img src="<%= @place.image %>" alt="<%= @place.name%>">
 <h4> Traveler Reviews </h4>
 <ul>
    <% @place.reviews.each do |review| %>

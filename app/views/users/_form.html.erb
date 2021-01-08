@@ -12,40 +12,41 @@
 <%= form_for @user, :html => {:multipart => true} do |f| %>
 
   <div class="form-input">
-    <%= f.label :name %>
+    <%= f.label "Name: "%>
     <%= f.text_field :name %>
   </div>
 
   <div class="form-input">
-    <%= f.label :username %>
+    <%= f.label "Username: " %>
     <%= f.text_field :username %>
   </div>
 
   <div class="form-input">
-    <%= f.label :password %> 
+    <%= f.label "Password: " %> 
     <%= f.password_field :password %>
   </div>
 
 
   <div class="form-input">
-    <%= f.label :profile_photo %>
+    <%= f.label "Profile photo: " %>
     <%= f.file_field :image %>
   </div>
 
   <div class="form-input">
-    <%= f.label :date_of_birth %>
+    <%= f.label "Date of birth: " %>
     <%= f.date_select :date_of_birth, :start_year=>1910 %>
   </div>
 
   <div class="form-input">
-    <%= f.label :city %>
+    <%= f.label "City: " %>
     <%= f.text_field :city %>
   </div>
 
   <div class="form-input">
-  <%= f.label :bio %>
+  <%= f.label "Bio: " %>
   <%= f.text_area :bio %>
 </div>
+
 
   <%= f.submit class: 'form-button'%>
 <% end %>

@@ -1,11 +1,14 @@
 
 <h1>Traveler Reviews</h1>
 
-<%= link_to "New Review", new_review_path(@review) %> 
+<button type="button" class="btn btn-light">
+    <%= link_to "New Review", new_review_path(@review) %> 
+</button>
+<br>
+<br>
 
-<ol>
-    <% @reviews.each do |review| %>
-       <li><%= link_to review.title, review_path(review) %> <%= review.likes.count %></li>
-    <% end %>
-</ol>
+<% @reviews.each do |review| %>
+    <p><%= link_to review.title, review_path(review) %>| City:<%= review.place.name %></p>
+<% end %>
+
 

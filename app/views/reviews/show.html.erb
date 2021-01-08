@@ -1,7 +1,10 @@
 <h2><%= @review.title %></h2>
-    <img src="<%= @review.image_url.to_s %>" alt="review photo" width="400" height="400"><br>
-   <p><strong>Review: </strong> <%= @review.review %></p><br>
-   <p><strong>By: </strong><%= link_to @review.user.username, user_path(@review.user) %></p>
+    <% if @review.image?%>
+        <img src="<%= @review.image_url.to_s %>" alt="review photo" width="400" height="400"><br>
+    <% end %>
+   <p>City: <%= @review.place.name %></p>
+   <p>Review: <%= @review.review %></p><br>
+   <p>By: <%= link_to @review.user.username, user_path(@review.user) %></p>
 <%= button_to "Like", review_likes_path(@review), method: :post %>  <%= @review.likes.count %>
 
 <%= render 'comments/comment' %>

@@ -1,36 +1,55 @@
-
-
-<h1 style="text-align:center;">Profile Page</h1>
+<h1>Profile Page</h1>
 <style>
-body {text-align: center;}
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+p {
+    margin-top: 10px;
+}
 
 </style>
     
 <body>
+<div class="text-left">
 <% if @user.image? %>
-    <img src="<%= @user.image_url.to_s %>" alt="profile photo" width="85" height="90">
+    <img src="<%= @user.image_url.to_s %>" alt="profile photo" >
 <% end %>
+</div>
 
 <br>
-<p><strong>Name: <%= @user.name %></p>
+<div>
+<p>Name: <%= @user.name %></p>
 <p>Username: <%= @user.username %></p>
 <p>Date of Birth: <%= @user.date_of_birth.strftime('%Y-%m-%d') %></p>
 <p>Bio: <%= @user.bio %></p>
 <p>City: <%= @user.city %></p>
-</body>
 
-Reviews:<br>
+</div>
+
+<div>
+<h5>Reviews:</h5>
 
 <% @user.reviews.each do |review| %>
     <%= link_to review.title, review_path(review) %><br>
 <% end %>
+</div>
+
 <br>
 <br>
 
 
+<div>
 <% if @current_user == @user %>
+
+<button type="button" class="btn btn-light">
     <%= link_to "Edit Profile", edit_user_path(@current_user) %>
+</button>
 <% end %>
+</div>
+
+</body>
 
 
 
