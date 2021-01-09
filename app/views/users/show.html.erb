@@ -1,3 +1,5 @@
+<div class="body-margin">
+
 <h1>Profile Page</h1>
 <style>
 img {
@@ -5,13 +7,11 @@ img {
     height: 150px;
     border-radius: 50%;
 }
-p {
-    margin-top: 10px;
-}
+
 
 </style>
     
-<body>
+
 <div class="text-left">
 <% if @user.image? %>
     <img src="<%= @user.image_url.to_s %>" alt="profile photo" >
@@ -27,20 +27,23 @@ p {
 <p>City: <%= @user.city %></p>
 
 </div>
+  
 
-<div>
-<h5>Reviews:</h5>
-
-<% @user.reviews.each do |review| %>
-    <%= link_to review.title, review_path(review) %><br>
-<% end %>
+<div class="card border-light mb-3" style="max-width: 18rem;">
+  <div class="card-header"><h4>Reviews</h4></div>
+  <div class="card-body">
+  <class="card-title"><% @user.reviews.each do |review| %>
+    <p><%= link_to review.title, review_path(review) %>
+    <% end %><p>
+    </div>
+    </div>
 </div>
 
 <br>
 <br>
 
 
-<div>
+<div style="text-align:center">
 <% if @current_user == @user %>
 
 <button type="button" class="btn btn-light">
@@ -49,7 +52,7 @@ p {
 <% end %>
 </div>
 
-</body>
+
 
 
 

@@ -16,3 +16,4 @@ class PlacesController < ApplicationController
 
 end
 # <%= link_to "Explore Vagabond", places_path %><br>
+# type="button" class="btn btn-light"

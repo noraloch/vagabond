@@ -182,6 +182,7 @@ GEM
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     rubyzip (2.3.0)
+    rufo (0.12.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -254,6 +255,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.0)
   rest-client
+  rufo
   sass-rails (>= 6)
   selenium-webdriver
   spring

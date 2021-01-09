@@ -1,4 +1,4 @@
-
+<div class="body-margin">
 <h1>Traveler Reviews</h1>
 
 <button type="button" class="btn btn-light">
@@ -10,5 +10,6 @@
 <% @reviews.each do |review| %>
     <p><%= link_to review.title, review_path(review) %>| City:<%= review.place.name %></p>
 <% end %>
+</div>
 
 
